@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1739">
+  <meta name="description" content="Simulado avançado de Ética, Legislação e Interação Humano-Computador.">
+  <title>Simulado — IHC e Legislação</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1739'/%3E%3Cpath d='M18 15h20c7 0 11 4 11 10v13c0 6-4 10-11 10H25l-8 7v-7c-4-1-6-5-6-10V25c0-6 3-10 7-10Z' fill='%23f4f1e8'/%3E%3Cpath d='M25 25c1-4 4-6 8-6 5 0 8 3 8 7 0 4-2 5-5 7-2 1-2 2-2 4' fill='none' stroke='%23f36b35' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='34' cy='42' r='2.5' fill='%23f36b35'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Voltar ao início">
+        <span class="brand-name">Simulado</span>
+        <span class="brand-context">IHC &amp; Legislação</span>
+      </a>
+      <button class="icon-button" id="themeButton" type="button" aria-label="Alternar tema" title="Alternar tema">
+        <span aria-hidden="true">◐</span>
+      </button>
+    </header>
+
+    <main id="app" tabindex="-1"></main>
+  </div>
+
+  <template id="setupTemplate">
+    <section class="setup-grid" aria-labelledby="setupTitle">
+      <div class="intro-block">
+        <h1 id="setupTitle">Simulado de questões</h1>
+        <p class="intro-subtitle">Ética, Legislação e Interação Humano-Computador</p>
+        <p class="intro-copy">Escolha o conteúdo e a quantidade de questões para começar. No modo treino, cada resposta recebe uma explicação.</p>
+        <div class="content-summary" aria-label="Conteúdo disponível">
+          <span><strong id="bankCount">80</strong> questões</span>
+          <span>Ética e Legislação</span>
+          <span>Interação Humano-Computador</span>
+        </div>
+      </div>
+
+      <form class="setup-card" id="setupForm">
+        <fieldset>
+          <legend>Disciplina</legend>
+          <div class="choice-grid choice-grid--subjects">
+            <label><input type="radio" name="subject" value="mixed" checked><span><b>Misto</b><small>As duas provas</small></span></label>
+            <label><input type="radio" name="subject" value="legislacao"><span><b>Legislação</b><small>Ética e princípios</small></span></label>
+            <label><input type="radio" name="subject" value="ihc"><span><b>IHC</b><small>Usabilidade e cognição</small></span></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Ritmo</legend>
+          <div class="choice-grid">
+            <label><input type="radio" name="mode" value="training" checked><span><b>Treino</b><small>Correção a cada questão</small></span></label>
+            <label><input type="radio" name="mode" value="exam"><span><b>Simulado</b><small>Resultado só no final</small></span></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Quantidade</legend>
+          <div class="count-options" id="countOptions">
+            <label><input type="radio" name="count" value="10" checked><span>10</span></label>
+            <label><input type="radio" name="count" value="20"><span>20</span></label>
+            <label><input type="radio" name="count" value="40"><span>40</span></label>
+            <label><input type="radio" name="count" value="all"><span>Todas</span></label>
+          </div>
+        </fieldset>
+
+        <button class="primary-button" type="submit">Começar simulado</button>
+        <p class="setup-note">A ordem das questões e das alternativas muda a cada tentativa.</p>
+      </form>
+    </section>
+  </template>
+
+  <div class="sr-only" id="liveRegion" aria-live="polite"></div>
+  <script src="questions-legislacao.js"></script>
+  <script src="questions-ihc.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
